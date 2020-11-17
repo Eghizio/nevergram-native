@@ -13,11 +13,6 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
     return (
         <Center>
             <Text>Home screen</Text>
-            {Object.keys(Screens).map(screenName => 
-                <TouchableOpacity key={screenName} onPress={() => navigation.navigate(screenName)}>
-                    <Text>{screenName}</Text>
-                </TouchableOpacity>
-            )}
         </Center>
     );
 };

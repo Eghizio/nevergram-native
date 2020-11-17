@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
+// import * as Screens from "../screens";
 import { Screen, ScreenOptions } from "../types/navigation";
 
 
@@ -11,6 +12,12 @@ export interface ScreenNavigatorProps {
 const Stack = createStackNavigator();
 
 const ScreenNavigator: React.FC<ScreenNavigatorProps> = ({ screens, screenOptions }) => {
+    // const screens: Screen[] = Object.entries(Screens).map(([key, value]) => ({
+    //     name: key,
+    //     screen: value,
+    //     options: { title: key },
+    // }));
+
     return (
         <Stack.Navigator
             initialRouteName="Home"
@@ -27,5 +34,16 @@ const ScreenNavigator: React.FC<ScreenNavigatorProps> = ({ screens, screenOption
         </Stack.Navigator>
     );
 };
+
+// const screenOptions: ScreenOptions = {
+//     headerStyle: {
+//       backgroundColor: '#f4511e',
+//     },
+//     headerTintColor: '#fff',
+//     headerTitleStyle: {
+//       fontWeight: 'bold',
+//     },
+//     headerTitleAlign: "center"
+// };
 
 export default ScreenNavigator;

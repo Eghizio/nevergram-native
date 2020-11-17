@@ -3,16 +3,16 @@ import { Text } from "react-native";
 import { Center } from "../components/atoms";
 
 
-export interface AboutProps {
+export interface SearchProps {
     navigation: any;
 };
 
-const About: React.FC<AboutProps> = ({ navigation }) => {
+const Search: React.FC<SearchProps> = ({ navigation }) => {
     return (
         <Center>
-            <Text>About screen</Text>
+            <Text>Search screen</Text>
         </Center>
     );
 };
 
-export default About;
+export default Search;
