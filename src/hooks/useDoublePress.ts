@@ -1,18 +1,21 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { GestureResponderEvent } from "react-native";
 
-const useDoublePress = (callback: () => any, delay: number = 300) => {
-    const [lastHeroPress, setLastHeroPress] = useState<number>(0);
+const useDoublePress = (callback: (event: GestureResponderEvent) => any, delay: number = 300) => {
+    // const [lastPress, setLastPress] = useState<number>(0);
+    let lastPress: number = 0;
 
     const handleDoublePress = (event: GestureResponderEvent) => {
         const now = new Date().getTime();
 
-        if(lastHeroPress && (now - lastHeroPress) < delay){
-            setLastHeroPress(0);
-            callback();
+        if(lastPress && (now - lastPress) < delay){
+            // setLastPress(0);
+            lastPress = 0;
+            callback(event);
         }
         else{
-            setLastHeroPress(now);
+            // setLastPress(now);
+            lastPress = now;
         }
     };
 
