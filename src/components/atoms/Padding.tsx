@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 
 export interface PaddingProps{
-    padding?: string;
+    // padding?: string;
     horizontal?: number;
     vertical?: number;
     top?: number;
@@ -12,11 +12,11 @@ export interface PaddingProps{
     right?: number;
 }
 
-const Padding: React.FC<PaddingProps> = ({ padding, horizontal, vertical, top, bottom, left, right, children }) => {
+const Padding: React.FC<PaddingProps> = ({ horizontal, vertical, top, bottom, left, right, children }) => {
     return (
         <View
             style={{
-                padding,
+                // padding: padding,
                 paddingHorizontal: horizontal,
                 paddingVertical: vertical,
                 paddingTop: top,

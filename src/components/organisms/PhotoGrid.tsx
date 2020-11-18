@@ -13,6 +13,8 @@ export interface PhotoGridProps{
 
 const formatPhotoURI = (id: string, width: number, height: number) => `https://picsum.photos/id/${id}/${Math.floor(width)}/${Math.floor(height)}`;
 
+// move data here "usePhoto", add play and folder icon for images
+// https://temp.media/video/?height=400&width=500&length=10 videos?
 const PhotoGrid: React.FC<PhotoGridProps> = ({ photos, numColumns, onEndReached }) => {
     const navigation = useNavigation();
     const { width } = Dimensions.get("window");
