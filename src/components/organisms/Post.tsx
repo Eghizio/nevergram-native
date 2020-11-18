@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Dimensions, Pressable, GestureResponderEvent } from "react-native";
+import { View, TouchableOpacity, Dimensions, Pressable } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import useDoublePress from "../../hooks/useDoublePress";
@@ -29,8 +29,9 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
     const date = [
         "1 hour ago",
         "3 days ago",
+        "1 week ago",
         "2 october 2020"
-    ][Math.floor(Math.random()*3)];
+    ][Math.floor(Math.random()*4)];
 
 
     const handleAvatarClick = () => {}; // story ? story : handleNameClick
@@ -144,7 +145,9 @@ const PostIndicators = styled.View``;
 const Indicator = styled.View``;
 
 // Post Info
-const PostInfo = styled.View``;
+const PostInfo = styled.View`
+    padding-bottom: 5px;
+`;
 const PostLikes = styled.Text`
     padding: 0 10px;
     font-weight: bold;

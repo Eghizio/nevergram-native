@@ -18,6 +18,11 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos, numColumns, onEndReached 
     const { width } = Dimensions.get("window");
     const size = width/numColumns;
     
+    const handleItemPress = (id: string) => {
+        // navigation.navigate("PhotoDetail", { item });
+        console.log(formatPhotoURI(id, size, size));
+    };
+
     return (
         <GridWrapper>
             <FlatList
@@ -26,7 +31,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos, numColumns, onEndReached 
                 numColumns={numColumns}
                 onEndReached={onEndReached}
                 renderItem={({ item }) => 
-                    <ImageContainer onPress={() => navigation.navigate("PhotoDetail", { item })}>
+                    <ImageContainer onPress={() => handleItemPress(item.id)}>
                         <Image
                             source={{
                                 width: size-2,
