@@ -13,6 +13,7 @@ export interface PostProps{
     images: string[];
 }
 
+// needs component decoupling, might do after adding redux store
 const Post: React.FC<PostProps> = ({ author, images }) => {
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const image = images[0]; // need to implement carousel

@@ -25,7 +25,8 @@ const ScreenNavigator: React.FC = () => {
 
     return (
         <Tab.Navigator
-            initialRouteName="Home"
+            // initialRouteName="Home" //temp to not manualy change for development
+            initialRouteName="Search"
             tabBarOptions={{
                 activeTintColor: "tomato",
                 inactiveTintColor: "gray",
