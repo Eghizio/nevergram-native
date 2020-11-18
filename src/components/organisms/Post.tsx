@@ -17,28 +17,36 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const image = images[0]; // need to implement carousel
     const handleDoublePressHero = useDoublePress(() => {
-        // setIsLiked(true);
-        setIsLiked(prev => !prev);
+        handleHeartPress();
         console.log("Double press!"); // display heart and handleHeartPress, tho Instagram 2tap sets like but does not undo it
     });
     const { width } = Dimensions.get("window");
 
 
-    const likes = Math.round(Math.random()*1000);
-    const comments = Math.round(Math.random()*255);
-    const date = [
+    const [likes, setLikes] = useState<number>(Math.round(Math.random()*1000));
+    const [comments] = useState<number>(Math.round(Math.random()*255));
+    const [date] = useState<string>([
         "1 hour ago",
         "3 days ago",
         "1 week ago",
         "2 october 2020"
-    ][Math.floor(Math.random()*4)];
+    ][Math.floor(Math.random()*4)]);
 
 
     const handleAvatarClick = () => {}; // story ? story : handleNameClick
     const handleNameClick = () => {}; // navigate to name profile
     const handleOpenPostOptionsModal = () => {}; // open modal with post options
 
-    const handleHeartPress = () => { setIsLiked(prev => !prev); }; // like
+    const handleHeartPress = () => {
+        setIsLiked(prev => {
+            const currentlyLiked = !prev;
+
+            if(currentlyLiked) setLikes(likes => likes+1);
+            else setLikes(likes => likes-1);
+            
+            return currentlyLiked;
+        });
+    }; // like
     const handleCommentPress = () => {}; // launch comment modal
     const handleMessagePress = () => {}; // launch send as message modal
     const handleBookmarkPress = () => {}; //sets it to black and adds to collection
