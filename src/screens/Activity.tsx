@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { ScrollView, Text, Dimensions } from "react-native";
+import { ScrollView, Text, useWindowDimensions } from "react-native";
 import { Center, Row, Padding } from "../components/atoms";
 import parseDate from "../utils/parseDate";
 
@@ -11,7 +11,7 @@ export interface ActivityProps {
 
 // prolly flat list will be better, will replace in future, will use headers for splitting time periods
 const Activity: React.FC<ActivityProps> = ({ navigation }) => {
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
     const padding = { horizontal: 20, vertical: 15 };
 
     // this should be moved to some state/store/dummydata context
@@ -20,17 +20,21 @@ const Activity: React.FC<ActivityProps> = ({ navigation }) => {
     const day = () => Math.ceil(Math.random()*28);
     const hour = () => Math.floor(Math.random()*24);
     const minute = () => Math.floor(Math.random()*60);
+    const text = () => [
+        "See something here", "Someone followed you", "Pee is stored in balls",
+        "The answer is 42 or 44", "Some random stuff here lulz"
+    ][Math.floor(Math.random())*5]
 
     const [activities] = useState(() => {
-        const initial = [
-            { id: 1, text: "See something here", date: new Date(year, month(), day(), hour(), minute()) },
-            { id: 2, text: "Someone followed you", date: new Date(year, month(), day(), hour(), minute()) },
-            { id: 3, text: "Pee is stored in balls", date: new Date(year, month(), day(), hour(), minute()) },
-            { id: 4, text: "The answer is 42 or 44", date: new Date(year, month(), day(), hour(), minute()) },
-        ];
+        const initial = [];
 
-        for(let i=5; i<100; i++)
-            initial.push({ id: i, text: "Some random stuff here lulz", date: new Date(year, month(), day(), hour(), minute()) });
+        for(let i=1; i<=100; i++){
+            initial.push({
+                id: i,
+                text: text(),
+                date: new Date(year, month(), day(), hour(), minute())
+            });
+        }
 
         initial.sort((a, b) => a.date.getTime() > b.date.getTime() ? -1 : 1);
         // console.log(initial.map(el => el.date));

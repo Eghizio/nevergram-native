@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useWindowDimensions, View } from "react-native";
 import { Center } from "../components/atoms";
 import Story from "../components/molecules/Story";
 import Post from "../components/organisms/Post";
@@ -12,7 +12,7 @@ export interface HomeProps {
 };
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
     
     const stories = [
         { name: "iamBob", avatar: "https://picsum.photos/id/1005/300/300", isPrivate: true },

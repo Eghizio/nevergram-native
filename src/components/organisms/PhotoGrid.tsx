@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, FlatList, Image, TouchableOpacity } from "react-native";
+import { FlatList, Image, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Center } from "../atoms";
 //import {} from "./styles";
@@ -17,7 +17,7 @@ const formatPhotoURI = (id: string, width: number, height: number) => `https://p
 // https://temp.media/video/?height=400&width=500&length=10 videos?
 const PhotoGrid: React.FC<PhotoGridProps> = ({ photos, numColumns, onEndReached }) => {
     const navigation = useNavigation();
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
     const size = width/numColumns;
     
     const handleItemPress = (id: string) => {

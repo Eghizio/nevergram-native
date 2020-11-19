@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useReducer } from "react";
 import { PhotoData, PhotoState, Action } from "../types/photos";
 
+// will move some of the logic to redux soon
 // need to fix abort on unmount
 const usePhotos = () => {
     const [state, dispatch] = useReducer(photoReducer, initialState);

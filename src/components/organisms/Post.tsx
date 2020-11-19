@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Dimensions, Pressable } from "react-native";
+import { TouchableOpacity, useWindowDimensions, Pressable } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import useDoublePress from "../../hooks/useDoublePress";
@@ -15,13 +15,14 @@ export interface PostProps{
 
 // needs component decoupling, might do after adding redux store
 const Post: React.FC<PostProps> = ({ author, images }) => {
+    const { width } = useWindowDimensions();
     const [isLiked, setIsLiked] = useState<boolean>(false);
-    const image = images[0]; // need to implement carousel
     const handleDoublePressHero = useDoublePress(() => {
         handleHeartPress();
         console.log("Double press!"); // display heart and handleHeartPress, tho Instagram 2tap sets like but does not undo it
     });
-    const { width } = Dimensions.get("window");
+    const image = images[0]; // need to implement carousel
+    
 
 
     const [likes, setLikes] = useState<number>(Math.round(Math.random()*1000));

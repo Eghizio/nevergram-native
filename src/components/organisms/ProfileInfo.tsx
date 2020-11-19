@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Dimensions } from "react-native";
+import { Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import styled from "styled-components/native";
 import { Center, Column, Row } from "../atoms";
 
@@ -8,7 +8,7 @@ export interface ProfileProps{
 }
 
 const Profile: React.FC<ProfileProps> = (props) => {
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
 
     const posts: number = Math.ceil(Math.random()*50);
     const followers: number = Math.ceil(Math.random()*200);
@@ -60,10 +60,9 @@ const Profile: React.FC<ProfileProps> = (props) => {
             <HighlightedStories>
                 <StoriesCarousel
                     horizontal
-                    // pagingEnabled
-                    // showsHorizontalScrollIndicator={false}
-                    // contentContainerStyle={{ width: width, gap: "15px", paddingHorizontal: 15, marginHorizontal: -15 }}
-                    contentContainerStyle={{ width: width, paddingHorizontal: 15, marginHorizontal: -15 }}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ width: width, gap: "15px", paddingHorizontal: 15, marginHorizontal: -15 }}
+                    // contentContainerStyle={{ width: width, paddingHorizontal: 15, marginHorizontal: -15 }}
                 >
                     {stories.map(({title, url}) =>
                         <Story key={url}>
@@ -87,14 +86,14 @@ const ProfileWrapper = styled(Center)`
     width: 100%;
     padding: 60px 10px 5px 20px;
     margin-bottom: 10px;
-    /* gap: 20px; */
+    gap: 20px;
 `;
 
 const ProfileInfo = styled(Row)`
     flex: 3;
     align-items: center;
     justify-content: space-around;
-    /* gap: 20px; */
+    gap: 20px;
     text-align: center;
 `;
 
@@ -168,10 +167,8 @@ const Plus = styled.Text`
     text-align: center;
     align-items: center;
     justify-content: center;
-    /* font-weight: bold; */
     font-size: x-large;
     color: black;
-
 `;
 
 export default Profile;

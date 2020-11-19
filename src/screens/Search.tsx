@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Text, ScrollView, Dimensions, View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { Text, ScrollView, useWindowDimensions, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Center } from "../components/atoms";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -17,7 +17,7 @@ export interface SearchProps {
 // need to make masonry effect, videos are taking 4 spaces, on photo click navigate to post
 const Search: React.FC<SearchProps> = ({ navigation }) => {
     const { photos, loading, error, fetchPhotos } = usePhotos();
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
 
     //could be an array of labels and just add manualy two first before mapping, tho when decoupled to component will be better that way
     const tags = [

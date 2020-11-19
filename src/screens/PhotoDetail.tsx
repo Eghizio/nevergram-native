@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Dimensions, TouchableOpacity } from "react-native";
+import { Text, Image, useWindowDimensions, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import styled from "styled-components/native";
 import Center from "../components/atoms/Center";
@@ -16,15 +16,19 @@ import Center from "../components/atoms/Center";
 // }
 
 export interface PhotoDetailProps{
+    item: {
+        download_url: string;
+        author: string;
+    };
+};
 
-}
-
+type DetailParams = { }
 const PhotoDetail: React.FC<PhotoDetailProps> = (props) => {
     const navigation = useNavigation();
     const route = useRoute();
-    const { width } = Dimensions.get("window");
+    const { width } = useWindowDimensions();
 
-    const { download_url, author } = route.params?.item || { download_url: "", author: "Unknown" };
+    const { download_url, author } = (route.params as PhotoDetailProps).item || { download_url: "", author: "Unknown" };
 
     return (
         <Center>
