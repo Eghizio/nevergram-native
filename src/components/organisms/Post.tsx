@@ -3,6 +3,7 @@ import { TouchableOpacity, useWindowDimensions, Pressable } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import useDoublePress from "../../hooks/useDoublePress";
+import PostOptionsModal from "../molecules/PostOptionsModal";
 
 
 export interface PostProps{
@@ -22,6 +23,7 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
         console.log("Double press!"); // display heart and handleHeartPress, tho Instagram 2tap sets like but does not undo it
     });
     const image = images[0]; // need to implement carousel
+    // const [isOptionModalOpened, setIsOptionModalOpened] = useState<boolean>(false);
     
 
 
@@ -37,7 +39,9 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
 
     const handleAvatarClick = () => {}; // story ? story : handleNameClick
     const handleNameClick = () => {}; // navigate to name profile
-    const handleOpenPostOptionsModal = () => {}; // open modal with post options
+    const handleOpenPostOptionsModal = () => {
+        // setIsOptionModalOpened(true);
+    }; // open modal with post options
 
     const handleHeartPress = () => {
         setIsLiked(prev => {
@@ -58,6 +62,7 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
 
     return (
         <PostContainer>
+            {/* <PostOptionsModal isOpened={isOptionModalOpened}/> */}
             <PostHeader>
                 <Author>
                 <TouchableOpacity onPress={handleAvatarClick}>

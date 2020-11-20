@@ -16,7 +16,7 @@ const formatPhotoURI = (id: string, width: number, height: number) => `https://p
 // move data here "usePhoto", add play and folder icon for images
 // https://temp.media/video/?height=400&width=500&length=10 videos?
 const PhotoGrid: React.FC<PhotoGridProps> = ({ photos, numColumns, onEndReached }) => {
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const { width } = useWindowDimensions();
     const size = width/numColumns;
     

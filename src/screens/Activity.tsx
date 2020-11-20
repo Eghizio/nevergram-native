@@ -22,8 +22,8 @@ const Activity: React.FC<ActivityProps> = ({ navigation }) => {
     const minute = () => Math.floor(Math.random()*60);
     const text = () => [
         "See something here", "Someone followed you", "Pee is stored in balls",
-        "The answer is 42 or 44", "Some random stuff here lulz"
-    ][Math.floor(Math.random())*5]
+        "The answer is 42 or 44", "Some random stuff here lulz", "ค้้้ค้้้ค้้้ค้้้ค้้้ ค้้้ค้้้ค้้้ ค้้้ค้้้ค้้้ค้้้ค้้้ ค้้้ค้้้"
+    ][Math.floor(Math.random()*6)];
 
     const [activities] = useState(() => {
         const initial = [];

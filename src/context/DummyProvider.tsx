@@ -1,17 +1,13 @@
 import React, { createContext, useContext } from "react";
-import * as dummyData from "./dummyData.json";
+import dummyData from "./dummyData";
 
 
-const data = {
-    someKey: dummyData
-};
-
-const DummyContext = createContext(data);
+const DummyContext = createContext(dummyData);
 export const useDummyData = () => useContext(DummyContext);
 
 const DummyProvider: React.FC = ({ children }) => {
     return (
-        <DummyContext.Provider value={data}>
+        <DummyContext.Provider value={dummyData}>
             {children}
         </DummyContext.Provider>
     );
