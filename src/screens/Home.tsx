@@ -57,7 +57,6 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
                     <View style={{ padding: 5 }}></View>
                 </Stories>
                 <Posts>
-                    <ImageCarousel images={posts[4].images} size={width}/>
                     {posts.map(({ author, images }) => 
                         <Post key={author.name} author={author} images={images}/>
                     )}
