@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import useDoublePress from "../../hooks/useDoublePress";
 import PostOptionsModal from "../molecules/PostOptionsModal";
+import ImageCarousel from "../molecules/ImageCarousel";
 
 
 export interface PostProps{
@@ -77,7 +78,7 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
                 </TouchableOpacity>
             </PostHeader>
             <Pressable onPress={handleDoublePressHero}>
-                <HeroImage source={{ uri: image, width, height: width }}/>
+                <ImageCarousel images={images} size={width}/>
             </Pressable>
             <PostControls>
                 <PostIcons>

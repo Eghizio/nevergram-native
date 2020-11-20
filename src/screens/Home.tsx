@@ -4,6 +4,7 @@ import { Center } from "../components/atoms";
 import Story from "../components/molecules/Story";
 import Post from "../components/organisms/Post";
 import styled from "styled-components/native";
+import ImageCarousel from "../components/molecules/ImageCarousel";
 
 
 
@@ -27,7 +28,13 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         { author: { name: "evereb5", avatar: "https://picsum.photos/id/1/300/300" }, images: ["https://picsum.photos/id/0/400/400"] },
         { author: { name: "mJackS00n", avatar: "https://picsum.photos/id/1010/300/300" }, images: ["https://picsum.photos/id/102/400/400"] },
         { author: { name: "my_name_jeff", avatar: "https://picsum.photos/id/1025/300/300" }, images: ["https://picsum.photos/id/103/400/400"] },
-        { author: { name: "carouselxxx", avatar: "https://picsum.photos/id/1069/300/300" }, images: ["https://picsum.photos/id/1062/400/400", "https://picsum.photos/id/1074/400/400"] },
+        {
+            author: { name: "carouselxxx", avatar: "https://picsum.photos/id/1069/300/300" },
+            images: [
+                "https://picsum.photos/id/1062/400/400", "https://picsum.photos/id/1074/400/400",
+                "https://picsum.photos/id/1064/400/400", "https://picsum.photos/id/1072/400/400"
+            ]
+        },
     ];
     
     // change scroll view to flatlist with stories header and infinite posts
@@ -50,6 +57,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
                     <View style={{ padding: 5 }}></View>
                 </Stories>
                 <Posts>
+                    <ImageCarousel images={posts[4].images} size={width}/>
                     {posts.map(({ author, images }) => 
                         <Post key={author.name} author={author} images={images}/>
                     )}
