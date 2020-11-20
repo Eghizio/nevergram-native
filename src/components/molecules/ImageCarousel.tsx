@@ -9,6 +9,7 @@ export interface ImageCarouselProps{
     size: number;
 }
 
+// render just an image instead carousel when single item? Elevate conditional rendering above?
 // flatlist instead of scrollview?
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, size }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -16,7 +17,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, size }) => {
     const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
         const { contentOffset, contentSize } = event.nativeEvent;
 
-        const currentItem = contentOffset.x / contentSize.width * images.length;
+        const currentItem = Math.round(contentOffset.x / contentSize.width * images.length);
         
         setCurrentImageIndex(currentItem);
     };
@@ -31,7 +32,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, size }) => {
                 decelerationRate="fast"
                 removeClippedSubviews
                 contentContainerStyle={{ width: size }}
-                scrollEventThrottle={0}
+                scrollEventThrottle={16}
                 onScroll={handleScroll}
             >
                 {images.map((image, i) =>
