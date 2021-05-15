@@ -2,7 +2,7 @@
 import { GestureResponderEvent } from "react-native";
 
 const useDoublePress = (callback: (event: GestureResponderEvent) => any, delay: number = 300) => {
-    // const [lastPress, setLastPress] = useState<number>(0);
+    // const [lastPress, setLastPress] = useState<number>(0); // causes additional rerenders
     let lastPress: number = 0;
 
     const handleDoublePress = (event: GestureResponderEvent) => {

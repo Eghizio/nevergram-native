@@ -5,6 +5,9 @@ I've tried to mimic the appearance of the Instagram using React Native.
 
 I am planning to use Firebase in order to make the application functional.
 
+My PC would die using emulator so I was developing using react-native-web, therefore some style properties (styled-components/native) are not suited for native.
+Need to fix that when I'll get a better device. Similarly with my mobile, it was taking ages to test an app using Expo application. 😅
+
 ## Installation
 The application uses [Expo](https://docs.expo.io/)
 >`yarn install`

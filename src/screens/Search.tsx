@@ -7,6 +7,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import PhotoGrid from "../components/organisms/PhotoGrid";
 import usePhotos from "../hooks/usePhotos";
+import { tags } from "../data/search";
 
 
 export interface SearchProps {
@@ -18,23 +19,6 @@ export interface SearchProps {
 const Search: React.FC<SearchProps> = ({ navigation }) => {
     const { photos, loading, error, fetchPhotos } = usePhotos();
     const { width } = useWindowDimensions();
-
-    //could be an array of labels and just add manualy two first before mapping, tho when decoupled to component will be better that way
-    const tags = [
-        { label: "NGTV", iconName: "television-classic" },
-        { label: "Shop", iconName: "shopping" },
-        { label: "Travel" },
-        { label: "Architecture" },
-        { label: "Decoration" },
-        { label: "Art" },
-        { label: "Food" },
-        { label: "Style" },
-        { label: "Television and movies" },
-        { label: "DIY" },
-        { label: "Music" },
-        { label: "Sport" },
-        { label: "Beauty" }
-    ];
 
 
     const handleSearchIconPress = () => {}; // focus input

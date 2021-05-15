@@ -2,6 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import styled from "styled-components/native";
 import { Center, Column, Row } from "../atoms";
+import { posts, followers, following, stories } from "../../data/profile";
 
 export interface ProfileProps{
 
@@ -10,17 +11,7 @@ export interface ProfileProps{
 const Profile: React.FC<ProfileProps> = (props) => {
     const { width } = useWindowDimensions();
 
-    const posts: number = Math.ceil(Math.random()*50);
-    const followers: number = Math.ceil(Math.random()*200);
-    const following: number = Math.ceil(Math.random()*200);
-
-    const stories = [
-        { title: "Animal", url: "https://picsum.photos/id/1003/106/106" },
-        { title: "Rocks", url: "https://picsum.photos/id/1016/106/106" },
-        { title: "Some green", url: "https://picsum.photos/id/1018/106/106" },
-        { title: "Berries", url: "https://picsum.photos/id/102/106/106" },
-        { title: "River", url: "https://picsum.photos/id/1044/106/106" },
-    ];
+    
 
     return (
         <ProfileWrapper>

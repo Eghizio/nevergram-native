@@ -23,12 +23,13 @@ const Post: React.FC<PostProps> = ({ author, images }) => {
         handleHeartPress();
         console.log("Double press!"); // display heart and handleHeartPress, tho Instagram 2tap sets like but does not undo it
     });
-    const image = images[0]; // need to implement carousel
+    // const image = images[0]; // need to implement carousel
     // const [isOptionModalOpened, setIsOptionModalOpened] = useState<boolean>(false);
     
 
 
     const [likes, setLikes] = useState<number>(Math.round(Math.random()*1000));
+    // could be moved to data as it is static for the moment
     const [comments] = useState<number>(Math.round(Math.random()*255));
     const [date] = useState<string>([
         "1 hour ago",

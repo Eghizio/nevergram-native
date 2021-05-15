@@ -7,7 +7,7 @@ export interface PostOptionsModalProps{
 }
 
 const PostOptionsModal: React.FC<PostOptionsModalProps> = ({ isOpened }) => {
-    return ( // this shit bugged
+    return ( // seems to doesnt work on rn-web
         <Modal
             visible={isOpened}
             animationType="slide"
